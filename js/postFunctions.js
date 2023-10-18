@@ -3,38 +3,15 @@ import { setInner, getValue } from "https://jscroot.github.io/element/croot.js";
 import { setCookieWithExpireHour } from "https://jscroot.github.io/cookie/croot.js";
 
 export default function PostSignUp() {
-    // let target_url = "https://asia-southeast2-trens-project.cloudfunctions.net/trensentimen-post";
-    // let tokenkey = "token";
-    // let tokenvalue = "f48bd58cb3b3972d05bb9303b15ce9b83f4fcb9c871d1b05906f2fec20620ea0";
-    // let datainjson = {
-    //     "username": getValue("username"),
-    //     "password": getValue("password")
-    // }
+    let target_url = "https://asia-southeast2-trens-project.cloudfunctions.net/trensentimen-post";
+    let tokenkey = "token";
+    let tokenvalue = "f48bd58cb3b3972d05bb9303b15ce9b83f4fcb9c871d1b05906f2fec20620ea0";
+    let datainjson = {
+        "username": getValue("username"),
+        "password": getValue("password")
+    }
 
-    // postWithToken(target_url,tokenkey,tokenvalue,datainjson,responseData);
-
-    
-    
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-
-    var raw = JSON.stringify({
-        "username": "dani",
-        "password": "secret"
-    });
-
-    var requestOptions = {
-        method: 'POST',
-        headers: myHeaders,
-        body: raw,
-        redirect: 'follow'
-    };
-
-    fetch("https://asia-southeast2-trens-project.cloudfunctions.net/trensentimen-post", requestOptions)
-        .then(response => response.text())
-        .then(result => console.log(result))
-        .catch(error => console.log('error', error));
-    alert("Sign Up Success");
+    postWithToken(target_url,tokenkey,tokenvalue,datainjson,responseData);
 }
 
 
@@ -42,6 +19,8 @@ export default function PostSignUp() {
 
 
 function responseData(result) {
+    
     setInner("pesan", result.message);
     setCookieWithExpireHour("token", result.token, 2);
+    alert(result.message, result.token)
 }
