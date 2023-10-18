@@ -13,6 +13,8 @@ export default function PostSignUp(){
 
     postWithToken(target_url,tokenkey,tokenvalue,datainjson,responseData);
 
+    alert("Sign Up Success");
+
 }
 
 
