@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <title>Dashboard</title>
   <meta charset="utf-8">
@@ -9,7 +10,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
   <link rel="icon" href="favicon.ico">
   <script src="js/dashboard.js"></script>
+  <script src="js/cookie.js"></script>
 </head>
+
 <body>
   <div>
     <div class="columns is-multiline">
@@ -51,11 +54,11 @@
     </nav>
 
     <section class="section">
-      
+
     </section>
 
     <section class="section has-background-primary">
-      
+
     </section>
 
     <footer class="section">
@@ -88,6 +91,17 @@
       </div>
     </footer>
   </div>
+
+  <script>
+    // Nama cookie yang akan diperiksa
+    const cookieName = "token";
+
+    // Periksa apakah cookie ada dengan menggunakan fungsi dari file cookieUtil.js
+    if (!isCookieExist(cookieName)) {
+      // Jika cookie tidak ada, arahkan kembali ke halaman login
+      window.location.href = "login.html";
+    }
+  </script>
 </body>
 
 </html>

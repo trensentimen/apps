@@ -9,9 +9,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.4/css/bulma.min.css" />
   <link rel="stylesheet" type="text/css" href="css/login.css">
+  <script src="js/cookie.js"></script>
 </head>
 
 <body>
+  
   <section class="hero is-fullheight">
     <div class="hero-body has-text-centered">
       <div class="login">
@@ -55,6 +57,16 @@
   </section>
 
   <script type="module" src="./js/post.js"></script>
+  <script>
+    // Nama cookie yang akan diperiksa
+    const cookieName = "token";
+
+    // Periksa apakah cookie ada dengan menggunakan fungsi dari file cookieUtil.js
+    if (isCookieExist(cookieName)) {
+      // Jika cookie tidak ada, arahkan kembali ke halaman login
+      window.location.href = "dashboard.html";
+    }
+  </script>
 </body>
 
 </html>
