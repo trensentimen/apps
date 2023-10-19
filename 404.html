@@ -22,21 +22,31 @@
                 <p class="is-size-6 mb-2">
                     The page you’re looking for doesn’t exist.
                 </p>
-                <a href="dashboard.html" class="button is-primary" id="backHome">Go Home</a>
+                <a href="dashboard.html" class="button is-primary" id="button">Go Home</a>
             </div>
 
         </div>
     </div>
     <script>
-        const referrer = document.referrer;
+        // window.location.href = "https://trensentimen.github.io/apps/404.html";
+        // Mendapatkan URL saat ini
+        const currentURL = window.location.href;
 
-        if (referrer) {
-            console.log("URL referer (path sebelumnya): " + referrer);
-            document.getElementById("backHome").href = referrer;
-            
-        } else {
-            console.log("Tidak ada URL referer (path sebelumnya).");
-        }
+        // Membuat URL objek untuk mengakses komponen-komponen URL
+        const url = new URL(currentURL);
+
+        // Mengambil protokol, domain, dan direktori (pathname)
+        const protocol = url.protocol;
+        const domain = url.hostname;
+        const path = url.pathname;
+
+        // Menggabungkan protokol, domain, dan direktori
+        const baseURL = protocol + "//" + domain + path;
+
+        console.log(baseURL);
+
+        // set href pada button
+        document.getElementById("button").href = baseURL + "dashboard.html";
     </script>
 </body>
 
