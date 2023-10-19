@@ -22,26 +22,12 @@
                 <p class="is-size-6 mb-2">
                     The page you’re looking for doesn’t exist.
                 </p>
-                <a href="dashboard.html" class="button is-primary" id="button">Go Home</a>
+                <a href="https://trensentimen.github.io/apps/dashboard.html" class="button is-primary" id="button">Go Home</a>
             </div>
 
         </div>
     </div>
     <script>
-        // window.location.href = "https://trensentimen.github.io/apps/404.html";
-        // Mendapatkan URL saat ini
-        const fullURL = window.location.href;
-        // const fullURL = "https://trensentimen.github.io/apps/dashboard.html/dsddashboard.htmldashboard.html";
-
-        // Mencari indeks pertama '/' setelah "https://"
-        const firstSlashIndex = fullURL.indexOf("/", 8); // Angka 8 adalah panjang "https://"
-
-        // Mengambil bagian URL hingga indeks pertama '/'
-        const baseURL = fullURL.substring(0, firstSlashIndex);
-
-        console.log(baseURL);
-        // set href pada button
-        document.getElementById("button").href = baseURL + "dashboard.html";
     </script>
 </body>
 
