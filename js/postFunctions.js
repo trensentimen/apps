@@ -20,7 +20,7 @@ export default function PostSignUp() {
 
 function responseData(result) {
 
-    setInner("pesan", result.message);
+    // setInner("pesan", result.message);
 
     setCookieWithExpireHour("token", result.token, 2);
     alert("Berhasil Masuk "+result.message)
