@@ -23,7 +23,7 @@ function responseData(result) {
     setInner("pesan", result.message);
 
     setCookieWithExpireHour("token", result.token, 2);
-    alert("Berhasil Masuk")
+    alert("Berhasil Masuk "+result.message)
     window.location.href = "dashboard.html";
 }
 
