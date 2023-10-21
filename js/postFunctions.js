@@ -21,9 +21,9 @@ export default function PostSignUp() {
 function responseData(result) {
 
     // setInner("pesan", result.message);
-    if(result.message == "Selamat Datang"){
+    if (result.message == "Selamat Datang") {
         setCookieWithExpireHour("token", result.token, 2);
-        alert("Berhasil Masuk "+result.message)
+        alert("Berhasil Masuk " + result.message)
         window.location.href = "dashboard.html";
     } else {
         alert("Gagal Masuk " + "password atau username salah")
@@ -34,7 +34,7 @@ function responseData(result) {
 function setCookieWithExpireHour(cname, cvalue, exhour) {
     const d = new Date();
     d.setTime(d.getTime() + (exhour * 60 * 60 * 1000));
-    let expires = "expires="+d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-    
+    let expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/" + "secure; HttpOnly; samesite=Strict";
+    // Set-Cookie: id=a3fWa; Expires=Thu, 21 Oct 2021 07:28:00 GMT; Secure; HttpOnly; SameSite=Strict
 }
