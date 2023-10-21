@@ -33,7 +33,7 @@
           <div class="navbar-start"><a class="navbar-item" href="#">About</a><a class="navbar-item"
               href="#">Company</a><a class="navbar-item" href="#">Services</a><a class="navbar-item"
               href="#">Testimonials </a>
-            <a class="navbar-item" href="logout.html" onclick="confirm('anda yakin akan logout?')">Logout</a></div>
+            <a class="navbar-item" href="logout.html" onclick="logout()">Logout</a></div>
           <div class="navbar-item">
             <div class="field has-addons">
               <div class="control">
@@ -93,7 +93,7 @@
     </footer>
   </div>
 
-  <!-- <script type="module">
+  <script type="module">
     // Nama cookie yang akan diperiksa
 
 
@@ -105,7 +105,16 @@
       // Jika cookie tidak ada, arahkan kembali ke halaman login
       window.location.href = "login.html";
     }
-  </script> -->
+  </script>
+  <script>
+    function logout(){
+      let konfirmasi= confirm ('anda yakin akan logout?') 
+      if (konfirmasi) {
+        deleteCookie("token");
+      }
+      
+    }
+  </script>
 </body>
 
 </html>
