@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
-  <link rel="icon" href="favicon.ico">
+  <link rel="icon" href="image/favicon.png">
   <script src="js/dashboard.js"></script>
   <script src="js/cookie.js"></script>
 </head>
@@ -97,38 +97,14 @@
 
   <script type="module">
     // Nama cookie yang akan diperiksa
+    import { getCookie } from "https://jscroot.github.io/cookie/croot.js";
+    const cookieName = "token";
 
-
-    // import { getCookie } from "https://jscroot.github.io/cookie/croot.js";
-    // const cookieName = "token";
-
-    // // Periksa apakah cookie ada dengan menggunakan fungsi dari file cookieUtil.js
-    // if (!getCookie(cookieName)) {
-    //   // Jika cookie tidak ada, arahkan kembali ke halaman login
-    //   window.location.href = "login.html";
-    // }
-
-    function bacaCookie(namaCookie) {
-      var nama = namaCookie + "=";
-      var daftarCookie = document.cookie.split(';');
-
-      for (var i = 0; i < daftarCookie.length; i++) {
-        var cookie = daftarCookie[i];
-        while (cookie.charAt(0) == ' ') {
-          cookie = cookie.substring(1);
-        }
-        if (cookie.indexOf(nama) == 0) {
-          return cookie.substring(nama.length, cookie.length);
-        }
-      }
-      return "";
+    // Periksa apakah cookie ada dengan menggunakan fungsi dari file cookieUtil.js
+    if (!getCookie(cookieName)) {
+      // Jika cookie tidak ada, arahkan kembali ke halaman login
+      window.location.href = "login.html";
     }
-
-    // Menggunakan fungsi bacaCookie untuk membaca cookie dengan nama "cname"
-    var nilaiCookieCname = bacaCookie("token");
-
-    // Menggunakan nilai cookie yang dibaca
-    console.log("Nilai cookie cname: " + nilaiCookieCname);
 
   </script>
   <script>
