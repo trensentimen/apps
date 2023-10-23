@@ -33,7 +33,8 @@
           <div class="navbar-start"><a class="navbar-item" href="#">About</a><a class="navbar-item"
               href="#">Company</a><a class="navbar-item" href="#">Services</a><a class="navbar-item"
               href="#">Testimonials </a>
-            <a class="navbar-item" href="login.html" onclick="logout()">Logout</a></div>
+            <a class="navbar-item" href="login.html" onclick="logout()">Logout</a>
+          </div>
           <div class="navbar-item">
             <div class="field has-addons">
               <div class="control">
@@ -98,22 +99,45 @@
     // Nama cookie yang akan diperiksa
 
 
-    import { getCookie } from "https://jscroot.github.io/cookie/croot.js";
-    const cookieName = "token";
+    // import { getCookie } from "https://jscroot.github.io/cookie/croot.js";
+    // const cookieName = "token";
 
-    // Periksa apakah cookie ada dengan menggunakan fungsi dari file cookieUtil.js
-    if (!getCookie(cookieName)) {
-      // Jika cookie tidak ada, arahkan kembali ke halaman login
-      window.location.href = "login.html";
+    // // Periksa apakah cookie ada dengan menggunakan fungsi dari file cookieUtil.js
+    // if (!getCookie(cookieName)) {
+    //   // Jika cookie tidak ada, arahkan kembali ke halaman login
+    //   window.location.href = "login.html";
+    // }
+
+    function bacaCookie(namaCookie) {
+      var nama = namaCookie + "=";
+      var daftarCookie = document.cookie.split(';');
+
+      for (var i = 0; i < daftarCookie.length; i++) {
+        var cookie = daftarCookie[i];
+        while (cookie.charAt(0) == ' ') {
+          cookie = cookie.substring(1);
+        }
+        if (cookie.indexOf(nama) == 0) {
+          return cookie.substring(nama.length, cookie.length);
+        }
+      }
+      return "";
     }
+
+    // Menggunakan fungsi bacaCookie untuk membaca cookie dengan nama "cname"
+    var nilaiCookieCname = bacaCookie("token");
+
+    // Menggunakan nilai cookie yang dibaca
+    console.log("Nilai cookie cname: " + nilaiCookieCname);
+
   </script>
   <script>
-    function logout(){
-      let konfirmasi= confirm ('anda yakin akan logout?') 
+    function logout() {
+      let konfirmasi = confirm('anda yakin akan logout?')
       if (konfirmasi) {
         deleteCookie("token");
       }
-      
+
     }
   </script>
 </body>
